@@ -19,3 +19,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: 'main'
+      - name: Build Package
+        run: |
+                 $incremented_version = $env:INPUT_VERSION
+                 $build_version = $incremented_version -split'\:'
+                 $build_version = $build_version[-1]
+                 Write-Output "Build Version: $build_version"
+                 Invoke-Expression "${{ env.UIPATHCLI }} ${{ env.PACKAGE }} --version $build_version --libraryOrchestratorFolder ${{env.ORCH_FOLDER}}"
+                 ls package
+        env:
+          INPUT_VERSION: ${{ steps.increment_version.outputs.incremented_version }}
+        shell: PowerShell
+        
+      - name: Deploy Package                                                                                                                                                                                        
+        run: |
+                Invoke-Expression "${{ env.UIPATHCLI }} ${{env.DEPLOY}} -o ${{env.ORCH_FOLDER}}"
