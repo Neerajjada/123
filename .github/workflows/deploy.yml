@@ -2,9 +2,7 @@ name: 123
 on:
   push:
    branches:
-      - develop
-   paths:
-      - 'Folder1/**'
+      - main
   workflow_dispatch: null    
       
 env:
@@ -20,4 +18,4 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
         with:
-          ref: 'develop'
+          ref: 'main'
