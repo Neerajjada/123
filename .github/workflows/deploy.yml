@@ -13,7 +13,7 @@ env:
   DEPLOY: "package deploy ${{ github.workspace }}\\package ${{secrets.ORCH_URL}} ${{secrets.ORCH_TENANT_NAME}} -I ${{secrets.ORCH_OAUTH_CLIENT_ID}} -S '${{secrets.ORCH_CLIENT_SECRET}}' -A ${{secrets.ORCH_ACCOUNT_NAME}}"
 jobs:
   build-and-deploy-package:
-    runs-on: [self-hosted, windows]
+    runs-on: windows-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
