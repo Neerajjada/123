@@ -11,5 +11,5 @@ env:
   UIPATHCLI: "& 'C:\\actions-runner\\uipath.cli\\tools\\uipcli.exe'"
   ORCH_FOLDER: '123'
   FOLDER_NAME:  '123'
-  PACKAGE: "package pack ${{ github.workspace }}\\Folder1\\Folder1Test\\project.json -o ${{ github.workspace }}\\package -l en-US --libraryOrchestratorApplicationId ${{secrets.ORCH_OAUTH_CLIENT_ID}} --libraryOrchestratorApplicationSecret '${{secrets.ORCH_CLIENT_SECRET}}' --libraryOrchestratorApplicationScope '${{secrets.ORCH_OAUTH_CLIENT_Scopes}}' --libraryOrchestratorUrl ${{secrets.ORCH_URL}} --libraryOrchestratorTenant ${{secrets.ORCH_TENANT_NAME}} --libraryOrchestratorAccountForApp ${{secrets.ORCH_ACCOUNT_NAME}}"
-  DEPLOY: "package deploy ${{ github.workspace }}\\package ${{secrets.ORCH_URL}} ${{secrets.ORCH_TENANT_NAME}} -I ${{secrets.ORCH_OAUTH_CLIENT_ID}} -S '${{secrets.ORCH_CLIENT_SECRET}}' --applicationScope '${{secrets.ORCH_OAUTH_CLIENT_SCOPES}}' -A ${{secrets.ORCH_ACCOUNT_NAME}}"
+  PACKAGE: "package pack ${{ github.workspace }}\\project.json -o ${{ github.workspace }}\\package -l en-US --libraryOrchestratorApplicationId ${{secrets.ORCH_OAUTH_CLIENT_ID}} --libraryOrchestratorApplicationSecret '${{secrets.ORCH_CLIENT_SECRET}}' --libraryOrchestratorUrl ${{secrets.ORCH_URL}} --libraryOrchestratorTenant ${{secrets.ORCH_TENANT_NAME}} --libraryOrchestratorAccountForApp ${{secrets.ORCH_ACCOUNT_NAME}}"
+  DEPLOY: "package deploy ${{ github.workspace }}\\package ${{secrets.ORCH_URL}} ${{secrets.ORCH_TENANT_NAME}} -I ${{secrets.ORCH_OAUTH_CLIENT_ID}} -S '${{secrets.ORCH_CLIENT_SECRET}}' -A ${{secrets.ORCH_ACCOUNT_NAME}}"
